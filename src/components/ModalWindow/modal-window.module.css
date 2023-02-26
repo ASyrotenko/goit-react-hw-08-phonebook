@@ -1,0 +1,26 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}

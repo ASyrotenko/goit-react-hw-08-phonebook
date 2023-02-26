@@ -1,0 +1,22 @@
+.header {
+  padding: 10px;
+  border-bottom: 1px solid grey;
+  text-align: center;
+}
+
+.authBtn {
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 250ms linear;
+}
+
+.authBtn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.authBtn:hover {
+  background-color: orange;
+  color: white;
+}
