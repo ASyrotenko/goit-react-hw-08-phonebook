@@ -1,11 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { registerNewUser } from './../../redux/auth/authOperations';
 
 import styles from './auth.module.css';
 
-const initialState = { login: '', email: '', password: '' };
+const initialState = { name: '', email: '', password: '' };
 
 export const RegistrationForm = ({ onCloseModal }) => {
   const [state, setState] = useState(initialState);
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -14,7 +18,7 @@ export const RegistrationForm = ({ onCloseModal }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(state);
+    dispatch(registerNewUser(state));
     setState(initialState);
     onCloseModal();
   };
@@ -24,13 +28,13 @@ export const RegistrationForm = ({ onCloseModal }) => {
       <h2>Registration</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.label}>
-          Login
+          Name
           <input
             type="text"
-            name="login"
+            name="name"
             required
             onChange={handleChange}
-            value={state.login}
+            value={state.name}
             className={styles.input}
           />
         </label>

@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { loginUser } from 'redux/auth/authOperations';
 
 import styles from './auth.module.css';
 
@@ -6,6 +9,7 @@ const initialState = { email: '', password: '' };
 
 export const LoginForm = ({ onCloseModal }) => {
   const [state, setState] = useState(initialState);
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -14,7 +18,7 @@ export const LoginForm = ({ onCloseModal }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(state);
+    dispatch(loginUser(state));
     setState(initialState);
     onCloseModal();
   };
