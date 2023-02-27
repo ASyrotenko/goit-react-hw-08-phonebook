@@ -29,3 +29,9 @@ export const logOutUser = async () => {
   await instance.post('/users/logout');
   token.unset();
 };
+
+export const fetchCurrentUser = async persistedToken => {
+  token.set(persistedToken);
+  const { data } = await instance.get('/users/current');
+  return data;
+};

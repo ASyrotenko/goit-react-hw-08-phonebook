@@ -1,14 +1,22 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Header } from 'components/Header/Header';
 import ContactForm from '../ContactForm';
 import Filter from '../Filter';
 import ContactList from '../ContactList';
 
+import { getCurrentUser } from 'redux/auth/authOperations';
+
 import styles from './app.module.css';
 
 export default function App() {
   const contactsRedux = useSelector(state => state.contacts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
 
   return (
     <>
