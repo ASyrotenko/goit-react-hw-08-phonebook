@@ -24,7 +24,7 @@ export const RegistrationForm = ({ onCloseModal }) => {
   };
 
   return (
-    <div>
+    <div className={styles.authContainer}>
       <h2>Registration</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.label}>

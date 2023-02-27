@@ -24,7 +24,7 @@ export const LoginForm = ({ onCloseModal }) => {
   };
 
   return (
-    <div>
+    <div className={styles.authContainer}>
       <h2>Login</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.label}>
@@ -50,7 +50,7 @@ export const LoginForm = ({ onCloseModal }) => {
           />
         </label>
         <button type="submit" className={styles.formBtn}>
-          SIGN UP
+          SIGN IN
         </button>
       </form>
     </div>

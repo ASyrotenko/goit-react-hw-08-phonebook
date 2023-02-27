@@ -1,7 +1,12 @@
 .header {
+  display: flex;
   padding: 10px;
   border-bottom: 1px solid grey;
-  text-align: center;
+  align-items: center;
+}
+
+.authContainer {
+  margin: 0 auto;
 }
 
 .authBtn {
@@ -19,4 +24,14 @@
 .authBtn:hover {
   background-color: orange;
   color: white;
+}
+
+.logOutContainer {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.logOutText {
+  margin: 0;
 }
