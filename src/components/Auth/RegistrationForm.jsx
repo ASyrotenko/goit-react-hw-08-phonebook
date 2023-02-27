@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { useNavigate } from 'react-router-dom';
+
 import { registerNewUser } from './../../redux/auth/authOperations';
 
 import styles from './auth.module.css';
 
 const initialState = { name: '', email: '', password: '' };
 
-export const RegistrationForm = ({ onCloseModal }) => {
+export const RegistrationForm = () => {
   const [state, setState] = useState(initialState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -20,7 +23,7 @@ export const RegistrationForm = ({ onCloseModal }) => {
     e.preventDefault();
     dispatch(registerNewUser(state));
     setState(initialState);
-    onCloseModal();
+    navigate('/');
   };
 
   return (

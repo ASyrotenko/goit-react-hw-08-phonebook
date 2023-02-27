@@ -1,29 +1,15 @@
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { ModalWindow } from 'components/ModalWindow/ModalWindow';
-import { RegistrationForm } from 'components/Auth/RegistrationForm';
-import { LoginForm } from 'components/Auth/LoginForm';
+import { NavLink } from 'react-router-dom';
 
 import { logOutUser } from 'redux/auth/authOperations';
 
 import styles from './header.module.css';
 
 export const Header = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [authForm, setAuthForm] = useState(null);
   const { isLoggedIn, user } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
-
-  const onShowModal = ({ currentTarget }) => {
-    setShowModal(true);
-    setAuthForm(currentTarget.dataset.auth);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
 
   const onLogOut = () => {
     dispatch(logOutUser());
@@ -40,33 +26,13 @@ export const Header = () => {
         </div>
       ) : (
         <div className={styles.authContainer}>
-          <button
-            type="button"
-            className={styles.authBtn}
-            onClick={onShowModal}
-            data-auth="singUp"
-          >
+          <NavLink className={styles.authBtn} to={'/register'}>
             Sing up
-          </button>
-          <button
-            type="button"
-            className={styles.authBtn}
-            onClick={onShowModal}
-            data-auth="singIn"
-          >
+          </NavLink>
+          <NavLink className={styles.authBtn} to={'/login'}>
             Sing in
-          </button>
+          </NavLink>
         </div>
-      )}
-
-      {showModal && (
-        <ModalWindow onCloseModal={closeModal}>
-          {authForm === 'singUp' ? (
-            <RegistrationForm onCloseModal={closeModal} />
-          ) : (
-            <LoginForm onCloseModal={closeModal} />
-          )}
-        </ModalWindow>
       )}
     </header>
   );

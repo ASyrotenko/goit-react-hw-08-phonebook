@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { useNavigate } from 'react-router-dom';
+
 import { loginUser } from 'redux/auth/authOperations';
 
 import styles from './auth.module.css';
 
 const initialState = { email: '', password: '' };
 
-export const LoginForm = ({ onCloseModal }) => {
+export const LoginForm = () => {
   const [state, setState] = useState(initialState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -20,7 +23,7 @@ export const LoginForm = ({ onCloseModal }) => {
     e.preventDefault();
     dispatch(loginUser(state));
     setState(initialState);
-    onCloseModal();
+    navigate('/');
   };
 
   return (
@@ -41,7 +44,7 @@ export const LoginForm = ({ onCloseModal }) => {
         <label className={styles.label}>
           Password
           <input
-            type="text"
+            type="password"
             name="password"
             required
             onChange={handleChange}
