@@ -23,7 +23,7 @@ export const RegistrationForm = () => {
     e.preventDefault();
     dispatch(registerNewUser(state));
     setState(initialState);
-    navigate('/');
+    navigate('/goit-react-hw-08-phonebook/');
   };
 
   return (

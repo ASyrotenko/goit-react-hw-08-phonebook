@@ -23,7 +23,7 @@ export const LoginForm = () => {
     e.preventDefault();
     dispatch(loginUser(state));
     setState(initialState);
-    navigate('/');
+    navigate('/goit-react-hw-08-phonebook/');
   };
 
   return (
