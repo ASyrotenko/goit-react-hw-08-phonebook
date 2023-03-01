@@ -33,7 +33,7 @@ export const LoginForm = () => {
         <label className={styles.label}>
           Email
           <input
-            type="text"
+            type="email"
             name="email"
             required
             onChange={handleChange}
